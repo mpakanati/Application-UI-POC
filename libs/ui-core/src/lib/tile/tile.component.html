@@ -1,0 +1,16 @@
+<div class='tile-container'[ngClass]="tileClass"  [ngStyle]="tileStyle">
+  <div class='tile-body' [ngStyle]="tileBodyStyle">
+    <div id="tile-{{i}}" class='tile-content' *ngFor='let item of tile; let i = index'>
+     <img  id="tile-image-{{i}}" src='{{item.icon}}' *ngIf='item.icon'  class='icon-svg tile-icon' [ngClass]="[item.class,item.icon]" [ngStyle]='item.style'>
+      <div  *ngIf='item.dividers && !item.value' class='progress-tile'>
+        <span id="start-{{i}}" *ngIf='item.dividers.start' class='tile-divider-start' [ngClass]="item.dividers.start.class"
+          [ngStyle]='item.dividers.start.style'>{{item.dividers.start.value}}</span>
+        <span *ngIf='item.dividers.start.value&&item.dividers.end&&item.dividers.end.value' class='tile-divider'>/</span>
+        <span id="end-{{i}}" *ngIf='item.dividers.end' class='tile-divider-end' [ngClass]="item.dividers.end.class" [ngStyle]='item.dividers.end.style'>{{item.dividers.end.value}}</span>
+      </div>
+      <div [ngStyle]='item.style' class='status' [ngClass]="item.class">
+        <span id="status-{{i}}">{{item.value}}</span>
+      </div>
+    </div>
+  </div>
+</div>

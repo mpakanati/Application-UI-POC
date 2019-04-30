@@ -1,0 +1,36 @@
+<div
+    class="card-container dashboard-card-auto-height"
+    (click)="onCardClick()"
+    [ngStyle]="cardStyle"
+    [ngClass]="cardClass"
+>
+    <div
+        class="card-header"
+        *ngIf="cardHeader?.value"
+        [ngClass]="cardHeader.class"
+        [ngStyle]="cardHeader.style"
+    >
+        <div class="header-text f-child">
+            <span class="back">{{cardHeader.value}}</span>
+
+        </div>
+        <div class="f-child badge-holder">
+            <span
+                class="badge"
+                *ngIf="badge"
+            >
+                {{badge}}
+            </span>
+        </div>
+        <!-- TODO : WILL HAVE TO FIX -->
+        <div *ngIf='expandIcon' class="f-child icon-holder">
+            <span
+                class="icons icon-Expand_Widget"
+                (click)="expandCard($event)"
+            ></span>
+        </div>
+    </div>
+    <div class="card-body" [ngStyle]="cardBodyStyle">
+        <ng-content></ng-content>
+    </div>
+</div>

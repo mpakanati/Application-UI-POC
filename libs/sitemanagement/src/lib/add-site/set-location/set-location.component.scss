@@ -1,0 +1,54 @@
+@import "../../site-management.scss";
+
+div.site-location-image:before {
+  content: url(/assets/images/site-location.svg) !important; // background-size: 8px 15px !important;
+}
+
+// set location style
+.description {
+  font-family: 'RobotoRegular';
+  font-size: 12px;
+  color: $color-black;
+  opacity: 0.6;
+  margin-top: 1.5em;
+}
+
+.title-container {
+  margin-left: 1.5em;
+}
+
+.title {
+  font-family: 'RobotoRegular';
+  font-weight: bold;
+  font-size: 18px;
+  color: $color-black;
+}
+
+.site-location {
+  display: flex;
+  width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  .title-container {
+    margin-left: 0.8em !important;
+  }
+
+  .title {
+    font-size: 16px !important;
+  }
+
+  .description {
+    font-size: 10px !important;
+    margin-top: 0px !important;
+    opacity: 0.4;
+  }
+
+  div.site-location-image:before {
+    content: url(/assets/images/site-location-resize.svg) !important; // background-size: 8px 15px !important;
+  }
+
+  .locationDetails {
+    width: 100% !important;
+  }
+}

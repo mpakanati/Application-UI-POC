@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods" thread-count="10">
+  <test name="Test">
+    <classes>
+   	 	<class name="example.NewTest">
+	    	<methods>
+		        <include name="testEasy" />
+		        <include name="testEasy2" />
+		        <include name="testEasy3" />
+				<include name="testEasy4" />
+				<include name="testEasy5" />
+				<include name="testEasy6" />
+				<include name="testEasy7" />
+				<include name="testEasy8" />
+				<include name="testEasy9" />
+				<include name="testEasy10" />
+	      	</methods>
+      	</class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

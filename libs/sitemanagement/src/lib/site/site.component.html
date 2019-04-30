@@ -1,0 +1,110 @@
+<div class="site-container-fluid" *ngIf="showNoSiteCard">
+    <div class="onboard-container">
+      <div class="onboard-text">
+        <span>Welcome Onboard !</span>
+      </div>
+      <div class="add-job">
+        <button class="add-job-site-no-job" [routerLink]="['/sites/addsite']">
+          <img class="btn-icon" src="../assets/images/asset-add-image.svg" />
+          <div class="btn-name">Jobsite</div>
+        </button>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="site-column-grid">
+        <div class="site-column">
+          <cc-card cardClass="bright-box-shadow" [cardStyle]="cardStyle">
+            <div class='site-card'>
+              <div class='default-site-img'>
+                <div class="empty-site-img"></div>
+              </div>
+              <div class='default-site-text'>
+                <span class="nojob-header-text">Jobsites not yet added</span>
+                <span class="nojob-text">Please create by using add new JobSite option</span>
+              </div>
+            </div>
+          </cc-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-container-fluid" *ngIf="isSiteAvailable">
+    <div class="top-site-info">
+      <ng-content select="info"></ng-content>
+      <div class="add-job">
+        <button class="add-job-site" [routerLink]="['/sites/addsite']">
+          <img class="btn-icon" src="../assets/images/asset-add-image.svg" />
+          <div class="btn-name">Jobsite</div>
+        </button>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="site-column-grid">
+        <cc-card class="with-site-card" (click)="onSiteCardClicked(site)" cardClass="bright-box-shadow" [cardStyle]="cardStyle" [cardBodyStyle]="cardBodyStyle"
+          cardHeader='false' *ngFor="let site of siteTiles">
+          <div class="site-card-header">
+            <div class='card-header-left' matTooltip='{{site.location}}'>
+              {{site.location}}
+            </div>
+            <div class='card-header-right'>
+              <button disableRipple mat-icon-button [matMenuTriggerFor]="menu" (click)="stopPropogation($event)">
+                <img src="/assets/images/vertical_dots.svg">
+              </button>
+              <mat-menu #menu="matMenu" [xPosition]="position">
+                <ng-container *ngFor="let option of siteOptions">
+                  <button mat-menu-item (click)="onSiteOptionClicked(site.siteId, option)">
+                    <span>{{option.label}}</span>
+                  </button>
+                </ng-container>
+              </mat-menu>
+            </div>
+          </div>
+          <div class="site-info">
+          <div class="site-id" *ngIf="wizardService.config.showSiteId">Site ID {{site.siteId}}</div>
+          <div class="sub-row card-title-flex">
+            <cc-tile class="info-box" [tile]="site.tile1" [tileStyle]="tileStyle"></cc-tile>
+          </div>
+        </div>
+          <div class="sub-row tiles-margin" [ngClass]="{'no-jobs':(site.jobsCount === 0)}">
+            <div class="tile-info">
+              <cc-tile class="info-box site-component-border-right tile1-width" [tile]="site.tile2"></cc-tile>
+              <cc-tile class="info-box site-component-border-right tile2-width" [tile]="site.tile3"></cc-tile>
+              <cc-tile class="info-box align-left tile3-width" [tile]="site.tile4"></cc-tile>
+            </div>
+            <div id="no-job" class="no-jobs-today" *ngIf='(site.jobsCount === 0)'>
+                <span id="no-job-message" class="no-job-content">No Jobs Today</span>
+            </div>
+            <div class="site-card-footer" *ngIf="site.poweredBy">
+                <span class="poweredby-text">Powered by {{site.poweredBy}}</span>
+            </div>
+          </div>
+
+        </cc-card>
+      </div>
+
+      <div class="missing-site-info" *ngIf="siteTiles.length > 0">
+        <div>Missing Jobsite?</div>
+        <div class="info">Reach out to the site Supervisor to get it added.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation delete dialog -->
+  <app-widget-dialog [(visible)]="showDeleteBox" *ngIf="showDeleteBox" dimensionsClass="confirmation-responsive">
+    <h4 class="delete-header">Delete Jobsite</h4>
+    <div class="delete-body">
+      <p class="delete-text">{{confirmationMessage}}</p>
+    </div>
+    <div class="delete-bottom-actions">
+      <div class="delete-actions">
+        <div class="cancel-wrapper">
+          <button mat-button class="cancel-button" *ngIf="showCancel" (click)="hideDeleteDialog()">No</button>
+        </div>
+        <div class="submit-wrapper">
+          <button mat-button *ngIf="showCancel" class="submit-button" (click)="deleteSite()">Yes</button>
+          <button mat-button *ngIf="!showCancel" class="submit-button" (click)="hideDeleteDialog()">OK</button>
+        </div>
+      </div>
+    </div>
+  </app-widget-dialog>

@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div  class="col-12 col-lg-6">
+    <cc-card  [cardHeader] ="{value:'Segment Analysis',style:{}}">
+      <cwc-segmentanalysis></cwc-segmentanalysis>
+    </cc-card>
+  </div>
+  <div class="col-12 col-lg-6">
+    <cc-card  [cardHeader]="{value:'Hours',style:{}}">
+      <cwc-hours ></cwc-hours>
+    </cc-card>
+  </div>
+  </div>
+  <div class="row">
+      <div  class="col-12 col-lg-12">
+    <cc-card [cardHeader]="{value:'Summary',style:{}}">
+      <cwc-asset-summary style="height:500px;"></cwc-asset-summary>
+    </cc-card>
+      </div>
+
+  </div>
+  <div class="row">
+      <div  class="col-12 col-lg-6">
+    <cc-card class="col-lg-6" [cardHeader]="{value:'Fuel',style:{}}">
+      <cwc-fuel></cwc-fuel>
+    </cc-card>
+    </div>
+    <div  class="col-12 col-lg-6">
+    <cc-card [cardHeader]="{value:'Subscriptions',style:{}}">
+      <cwc-subscriptions  ></cwc-subscriptions>
+    </cc-card>
+    </div>
+  </div>
+  <div>
+
+  <div class="row" >
+    <div  class="col-10 col-lg-6">
+    <cc-card [cardHeader]="{value:'Location',style:{}}">
+      <cwc-applicationmap-google id="applicationmap" style="height:500px;"></cwc-applicationmap-google>
+    </cc-card>
+    </div>
+    <div  class="col-12 col-lg-2">
+        <cc-card [cardHeader]="{value:'Weather',style:{}}">
+          <cwc-weatherwidget-summary id="weather-config" [apirequest]="weatherRequest"></cwc-weatherwidget-summary>
+        </cc-card>
+        </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,235 @@
+    .address-wrapper {
+      flex-grow: 1;
+    }
+
+    .site-summary {
+
+      // margin: 2em 5em;
+      .header-wrapper {
+        margin-bottom: 0.5em;
+
+        .header {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+        }
+
+        .header-small,
+        .edit-link {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 20px;
+
+          &.pad-right {
+            padding-right: 1em;
+          }
+        }
+
+        a {
+          color: #2A6BB8;
+          cursor: pointer;
+        }
+      }
+
+      .summary-info {
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 18px;
+        opacity: 0.6;
+        margin-bottom: 2.5em;
+      }
+
+      .location-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 1.5em;
+
+        .jobsite-wrapper {
+          flex-grow: 0.3;
+          max-width: 20%;
+        }
+
+        .jobsite-header {
+          margin-bottom: 0.4em;
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 18px;
+          color: #565656;
+        }
+
+        .jobsite-info {
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 20px;
+          color: #000000;
+        }
+
+        &.reduce-mar {
+          margin-bottom: 0.7em !important;
+        }
+      }
+
+      .geofence-details {
+        margin-top: 2.5em;
+          .geofence-container {
+              margin-bottom: 1.5em;
+              .geofence-wrapper {
+                  .geofence-boundary {
+                      border: 1px solid;
+                      border-radius: 5px;
+                      width: 109px;
+                      height: 24px;
+                      display: inline-block;
+                      text-align: center;
+                      margin-right: 8px;
+                      margin-bottom: 16px;
+                      .geofence-text {
+                          font-size: 12px;
+                          vertical-align: middle;
+                          padding: 5px 0;
+                          overflow: hidden;
+                          white-space: nowrap;
+                          text-overflow: ellipsis;
+                      }
+                  }
+              }
+          }
+      }
+
+      .assets-box {
+        height: 5em;
+        background: #FFFFFF;
+        border: 1px solid #DADADA;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin-top: 0.8em;
+
+        .no-assets {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+        }
+
+        mat-chip {
+          border-radius: 3px;
+          margin: 5px !important;
+          padding: 2px 10px;
+          font-size: 20px;
+        }
+      }
+    }
+
+    @media only screen and (min-width:768px) and (max-width: 1999px) {
+      .site-summary {
+        .header-wrapper {
+          .header {
+            font-size: 18px;
+          }
+
+          .header-small,
+          .edit-link {
+            font-size: 14px;
+          }
+        }
+
+        .summary-info {
+          font-size: 13px;
+          margin-bottom: 2.5em;
+        }
+
+        .location-container {
+          display: flex;
+
+          .jobsite-wrapper {
+            flex-grow: 0.2;
+            // max-width: stretch !important;
+            // width: stretch !important;
+          }
+
+          .jobsite-header {
+            font-size: 14px;
+          }
+
+          .jobsite-info {
+            font-size: 14px;
+          }
+
+        }
+
+        .assets-box {
+          height: 5em;
+          overflow-y: auto;
+          background: #FFFFFF;
+          border: 1px solid #DADADA;
+          box-sizing: border-box;
+          border-radius: 5px;
+          margin-top: 0.8em;
+
+          mat-chip {
+            border-radius: 3px;
+            margin: 5px;
+            padding: 2px 10px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    @media only screen and (min-width:320px) and (max-width: 767px) {
+      .site-summary {
+
+        // margin: 2em 5em;
+        .header-wrapper {
+          .header {
+            font-size: 16px;
+          }
+
+          .header-small,
+          .edit-link {
+            font-size: 14px;
+          }
+        }
+
+        .summary-info {
+          font-size: 11px;
+        }
+
+        .location-container {
+          display: block;
+
+          .jobsite-header {
+            font-size: 12px;
+          }
+
+          .jobsite-info {
+            font-size: 14px;
+          }
+
+          .jobsite-wrapper {
+            max-width: stretch !important;
+            width: stretch !important;
+          }
+        }
+
+        .assets-box {
+          height: 5em;
+          background: #FFFFFF;
+          border: 1px solid #DADADA;
+          box-sizing: border-box;
+          border-radius: 5px;
+          margin-top: 0.8em;
+          overflow-y: auto;
+
+          mat-chip {
+            border-radius: 3px;
+            margin: 5px;
+            padding: 2px 10px;
+            font-size: 12px;
+          }
+        }
+      }
+    }

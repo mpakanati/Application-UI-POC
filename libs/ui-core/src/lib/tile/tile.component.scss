@@ -1,0 +1,319 @@
+.tile-container {
+  position: relative;
+  padding: .25em;
+
+  .tile-body {
+    text-align: center;
+    line-height: 1.23;
+
+    .tile-content {
+      /* padding: .1em; */
+      padding: 1px 0;
+      line-height: 1;
+
+      .tile-icon {}
+    }
+
+    .progress-tile {
+      .tile-divider-start {}
+
+      .tile-divider {}
+
+      .tile-divider-end {}
+    }
+
+    .status {}
+  }
+}
+
+.tile-container.marketingTile {
+  margin-right: 1.9375em;
+
+  img {
+    max-width: 82px;
+    max-height: 82px;
+  }
+}
+
+@font-face {
+  font-family: 'icomoontile';
+  src: url('../assets/icons/icomoon.eot?753ser');
+  src: url('../assets/icons/icomoon.eot?753ser#iefix') format('embedded-opentype'), url('../assets/icons/icomoon.ttf?753ser') format('truetype'), url('../assets/icons/icomoon.woff?753ser') format('woff'), url('../assets/icons/icomoon.svg?753ser#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoontile' !important; // speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Completed:before {
+  content: "\e90c";
+  color: #969696;
+}
+
+.icon-Paver:before {
+  content: "\e929";
+  color: #969696;
+}
+
+.icon-Plant:before {
+  content: "\e935";
+  color: #969696;
+}
+
+.icon-Remaining_Hours:before {
+  content: "\e93d";
+  color: #969696;
+}
+
+.icon-Remaining_Tons:before {
+  content: "\e93e";
+  color: #969696;
+}
+
+.icon-Truck:before {
+  content: "\e945";
+  color: #969696;
+}
+
+.tile-header {
+  font-family: 'RobotoBold';
+  font-size: 0.68rem;
+  line-height: 1.23;
+}
+
+.tile-header-dark {
+  color: #1c1c1c;
+  font-family: RobotoBold;
+  font-size: 0.68rem;
+  line-height: 1.23;
+}
+
+.tile-header-light {
+  font-size: 0.625rem;
+  color: #969696;
+  line-height: 1.2;
+}
+
+.tile-footer {
+  color: #b7b7b7;
+  font-size: 0.56rem;
+  line-height: 1.3;
+}
+
+.tile-divider {
+  font-size: 0.81rem;
+}
+
+.tile-divider-start {
+  color: #22b573;
+  font-family: 'RobotoBold';
+}
+
+.tile-divider-end {
+  color: #000000;
+  font-family: 'RobotoBold';
+}
+
+.tile-opacity-text {
+  opacity: 0.6;
+}
+
+.tile-header-text {
+  text-align: left;
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  color: #565656;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile-footer-text {
+  text-align: left;
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  color: #969696;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile-body-text {
+  text-align: left;
+  font-family: RobotoRegular;
+  font-style: normal;
+  line-height: normal;
+  font-size: 22px;
+  color: #333333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.align-content {
+  margin-left: 1.5em;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.iconStyle {
+  font-size: 2rem;
+}
+
+.icon-loader {
+  width: 75px;
+}
+
+.site_name {
+  text-align: left;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 1em;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.tile2_name,
+.tile3_name,
+.tile4_name {
+  font-size: 14px;
+  margin: 0.5em 0;
+  color: #000000;
+  opacity: 0.6; //overflow: hidden;
+  //text-overflow: ellipsis;
+}
+
+.tile3_target {
+  font-weight: bold;
+  line-height: normal;
+  font-size: .7em;
+  padding: .25em 0;
+  color: #333333;
+}
+
+.tile2_value {
+  // margin-right: 40%;
+  font-weight: bold;
+  line-height: normal;
+  font-size: .75em;
+  padding: .25em 0;
+  color: #000000;
+}
+
+.tile4_target {
+  font-weight: bold;
+  line-height: normal;
+  font-size: .7em;
+  padding: .5em 0;
+  color: #333333;
+}
+
+.tile2_name {
+  // text-align: left;
+}
+
+@media all and (min-width:768px) and (max-width:1999px) {
+  .tile-body-text {
+    font-size: 16px;
+  }
+
+  .tile2_name,
+  .tile3_name,
+  .tile4_name {
+    font-size: 12px;
+  }
+
+  .tile-header-text,
+  .tile-footer-text {
+    font-size: 12px;
+  }
+
+  .icon-loader {
+    width: 46px;
+  }
+}
+
+@media all and (max-width:767px) {
+  .tile-header-dark {
+    font-size: 13px !important;
+  }
+
+  .tile2_name,
+  .tile3_name,
+  .tile4_name {
+    font-size: 12px;
+  }
+
+  .tile-footer {
+    font-size: 12px !important;
+  }
+
+  .tile-header-light {
+    font-size: 11px !important;
+  }
+
+  .tile-header-text,
+  .tile-footer-text {
+    font-size: 10px;
+  }
+
+  .tile-body-text {
+    font-size: 14px;
+  }
+
+  .tile-divider-start,
+  .tile-divider {
+    font-size: 14px !important;
+  }
+
+  .icon-loader {
+    width: 41px;
+  }
+}
+
+@media (max-width:414px) {
+  .tile-container {
+    padding: .25em 0;
+  }
+}
+
+@media all and (max-width:360px) {
+  .tile-footer {
+    font-size: 11px !important;
+  }
+
+  .tile-header-light {
+    font-size: 10px !important;
+  }
+
+  .tile2_name,
+  .tile3_name,
+  .tile4_name {
+    font-size: 0.6em;
+  }
+
+  .tile3_target,
+  .tile4_target {
+    font-size: 0.6em;
+  }
+}

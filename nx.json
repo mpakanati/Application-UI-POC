@@ -1,0 +1,39 @@
+{
+  "npmScope": "cc",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "fleet": {
+      "tags": ["frontend","feature"]
+    },
+    "fleet-e2e": {
+      "tags": []
+    },
+    "ui-core": {
+      "tags": ["frontend"]
+    },
+    "sitemanagement": {
+      "tags": ["feature"]
+    },
+    "utils": {
+      "tags": ["shared"]
+    },
+    "http-interceptor": {
+      "tags": []
+    },
+    "shared-lib": {
+      "tags": []
+    },
+    "ci-assetmanagement": {
+      "tags": []
+    },
+    "google-place-suggestion": {
+      "tags": []
+    }
+  }
+}

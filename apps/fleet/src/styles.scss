@@ -1,0 +1,835 @@
+// /* You can add global styles to this file, and also import other style files */
+// @import '~@angular/material/theming';
+
+// @include mat-core();
+
+// $candy-app-primary: mat-palette($mat-amber);
+// $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// // The warn palette is optional (defaults to red).
+// $candy-app-warn:    mat-palette($mat-red);
+
+// // Create the theme object (a Sass map containing all of the palettes).
+// $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// @include angular-material-theme($candy-app-theme);
+/*RESET STYLE START HERE FOR REMOVING BROWSER'S DEFAULT STYLE*/
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$candy-app-primary: mat-palette($mat-amber);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+*{
+	margin:0;
+	padding:0;
+	outline:none;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing:border-box;
+}
+a, a:hover, a:focus{
+	text-decoration:none;
+	outline:none;
+}
+ul, ol{
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*RESET STYLE ENDS HERE*/
+
+/*NORMALISE STYLE STARTS HERE - DEFAULT STYLE FOR THROUGHT THE APP*/
+html{
+	font-size:62.5%;/*1em will be 10px so if we are using 14px we can write 1.4em*/
+	-webkit-text-size-adjust: 100%;
+	line-height:1.5;
+}
+/*FONT FACE HAS TO BE ADD HERE IF WE ARE USING CUSTOME FAMILY*/
+body{
+	font-size:1.3rem;
+	color:#333333;
+	background-color: #ffffff;
+	font-family:-apple-system,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+}
+/*NORMALISE STYLE END HERE*/
+
+/*COMMON STYEL START HERE - MINI FRAMEWORK*/
+.container{
+	width:100%;
+	max-width:1200px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+.container-fluid{
+	width:100%;
+	padding:0 15px;
+	margin: 0 auto;
+}
+.pad0{
+	padding:0;
+}
+.mar-t5{
+	margin-top:5px;
+}
+.mar-t10{
+	margin-top:10px;
+}
+.mar-t15{
+	margin-top:15px;
+}
+.mar-t20{
+	margin-top:20px;
+}
+.mar-t25{
+	margin-top:25px;
+}
+.mar-t30{
+	margin-top:30px;
+}
+.mar-b5{
+	margin-bottom:5px;
+}
+.mar-b10{
+	margin-bottom:10px;
+}
+.mar-b15{
+	margin-bottom:15px;
+}
+.mar-b20{
+	margin-bottom:20px;
+}
+.mar-b25{
+	margin-bottom:25px;
+}
+.mar-b30{
+	margin-bottom:30px;
+}
+.mar-lauto{
+	margin-left:auto;
+}
+.mar-l5{
+	margin-left:5px;
+}
+.mar-l10{
+	margin-left:10px;
+}
+.mar-l15{
+	margin-left:15px;
+}
+.mar-l20{
+	margin-left:20px;
+}
+.mar-l25{
+	margin-left:25px;
+}
+.mar-l30{
+	margin-left:30px;
+}
+.mar-rauto{
+	margin-right:auto;
+}
+.mar-r5{
+	margin-right:5px;
+}
+.mar-r10{
+	margin-right:10px;
+}
+.mar-r15{
+	margin-right:15px;
+}
+.mar-r20{
+	margin-right:20px;
+}
+.mar-r25{
+	margin-right:25px;
+}
+.mar-r30{
+	margin-right:30px;
+}
+.mar-v5{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.mar-v10{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.mar-v15{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.mar-v20{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.mar-v25{
+	margin-top:25px;
+	margin-bottom:25px;
+}
+.mar-v30{
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.mar-h5{
+	margin-left:5px;
+	margin-right:5px;
+}
+.mar-h10{
+	margin-left:10px;
+	margin-right:10px;
+}
+.mar-h15{
+	margin-left:15px;
+	margin-right:15px;
+}
+.mar-h20{
+	margin-left:20px;
+	margin-right:20px;
+}
+.mar-h25{
+	margin-left:25px;
+	margin-right:25px;
+}
+.mar-h30{
+	margin-left:30px;
+	margin-right:30px;
+}
+.mar-a5{
+	margin:5px;
+}
+.mar-a10{
+	margin:10px;
+}
+.mar-a15{
+	margin:15px;
+}
+.mar-a20{
+	margin:20px;
+}
+.mar-a25{
+	margin:25px;
+}
+.mar-a30{
+	margin:30px;
+}
+.pad0{
+	padding:0;
+}
+.pad-t5{
+	padding-top:5px;
+}
+.pad-t10{
+	padding-top:10px;
+}
+.pad-t15{
+	padding-top:15px;
+}
+.pad-t20{
+	padding-top:20px;
+}
+.pad-t25{
+	padding-top:25px;
+}
+.pad-t30{
+	padding-top:30px;
+}
+.pad-b5{
+	padding-bottom:5px;
+}
+.pad-b10{
+	padding-bottom:10px;
+}
+.pad-b15{
+	padding-bottom:15px;
+}
+.pad-b20{
+	padding-bottom:20px;
+}
+.pad-b25{
+	padding-bottom:25px;
+}
+.pad-b30{
+	padding-bottom:30px;
+}
+.pad-l5{
+	padding-left:5px;
+}
+.pad-l10{
+	padding-left:10px;
+}
+.pad-l15{
+	padding-left:15px;
+}
+.pad-l20{
+	padding-left:20px;
+}
+.pad-l25{
+	padding-left:25px;
+}
+.pad-l30{
+	padding-left:30px;
+}
+.pad-r5{
+	padding-right:5px;
+}
+.pad-r10{
+	padding-right:10px;
+}
+.pad-r15{
+	padding-right:15px;
+}
+.pad-r20{
+	padding-right:20px;
+}
+.pad-r25{
+	padding-right:25px;
+}
+.pad-r30{
+	padding-right:30px;
+}
+.pad-v5{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.pad-v10{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.pad-v15{
+	padding-top:15px;
+	padding-bottom:15px;
+}
+.pad-v20{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.pad-v25{
+	padding-top:25px;
+	padding-bottom:25px;
+}
+.pad-v30{
+	padding-top:30px;
+	padding-bottom:30px;
+}
+.pad-h5{
+	padding-left:5px;
+	padding-right:5px;
+}
+.pad-h10{
+	padding-left:10px;
+	padding-right:10px;
+}
+.pad-h15{
+	padding-left:15px;
+	padding-right:15px;
+}
+.pad-h20{
+	padding-left:20px;
+	padding-right:20px;
+}
+.pad-h25{
+	padding-left:25px;
+	padding-right:25px;
+}
+.pad-h30{
+	padding-left:30px;
+	padding-right:30px;
+}
+.pad-a5{
+	padding:5px;
+}
+.pad-a10{
+	padding:10px;
+}
+.pad-a15{
+	padding:15px;
+}
+.pad-a20{
+	padding:20px;
+}
+.pad-a25{
+	padding:25px;
+}
+.pad-a30{
+	padding:30px;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto{
+	position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.col-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+.col-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+.col-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.col-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.col-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+.col-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+.col-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+.col-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.col-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+.col-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+.col-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.col-auto {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+
+@media all and (min-width: 576px){
+.col-sm-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+.col-sm-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+.col-sm-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.col-sm-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.col-sm-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+.col-sm-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-sm-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+.col-sm-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+.col-sm-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.col-sm-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+.col-sm-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+.col-sm-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.col-sm-auto {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+}
+@media all and (min-width:768px){
+.col-md-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+.col-md-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+.col-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.col-md-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+.col-md-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-md-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+.col-md-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+.col-md-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.col-md-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+.col-md-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+.col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.col-md-auto {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+}
+@media all and (min-width:992px){
+.col-lg-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+.col-lg-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+.col-lg-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.col-lg-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.col-lg-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+.col-lg-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-lg-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+.col-lg-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+.col-lg-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.col-lg-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+.col-lg-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+.col-lg-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.col-lg-auto {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+}
+@media all and (min-width:1200px){
+.col-xl-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+.col-xl-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+.col-xl-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.col-xl-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.col-xl-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+.col-xl-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-xl-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+.col-xl-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+.col-xl-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.col-xl-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+.col-xl-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+.col-xl-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.col-xl-auto {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+}
+/*COMMON STYEL END HERE - MINI FRAMEWORK*/
+// Overide Chekbox styles
+$table-header: #333333;
+$text-cat-yellow: #FFCC11;
+.mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
+    background: #ffff;
+    border: 1px solid #ffc107 !important;
+    color: #000;
+}
+
+.mat-primary .mat-pseudo-checkbox-checked::after {
+    top: 7px !important;
+    left: 5px !important;
+    width: 12px;
+    height: 5px;
+    color: #000;
+}
+
+
+.mat-pseudo-checkbox {
+    width: 23px !important;
+    height: 23px !important;
+    border: 1px solid rgba(0, 0, 0, 0.54) !important;
+    border-radius: 4px !important;
+}
+
+.mat-selected {
+    .mat-option-text {
+        color: #000 !important;
+    }
+}
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus {
+    background-color: transparent !important;
+}
+
+.mat-tab-label-active {
+    opacity: 1 !important;
+    font-weight: 500;
+    color: #000000 !important;
+  }
+
+.mat-form-field-should-float {
+    .mat-form-field-underline :focus {
+        background-color: #ffc107 !important;
+    }
+}
+
+.mat-active {
+    .mat-option-text {
+        color: $table-header !important;
+    }
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline-offset: 0 px !important;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #000 !important;
+}
+
+.mat-option:hover:not(.mat-option-disabled) {
+    background: #fff9e2 !important;
+}
+
+// .mat-select-panel {
+//   position: relative;
+//   top: 40px;
+//   overflow: hidden;
+// }
+
+.cdk-overlay-container {
+   z-index: 1000000 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: none !important;
+}
+
+.mat-step-header-ripple {
+    position: relative !important;
+}
+
+button {
+    background: $text-cat-yellow;
+    border-radius: 3px;
+    border: none;
+    font-family: RobotoRegular;
+    outline: 0 !important;
+}
+
+/* Utility/Helper styles - START */
+
+.cursor-pointer {
+    cursor: pointer;
+}

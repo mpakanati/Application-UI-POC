@@ -1,0 +1,640 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url('/assets/fonts/roboto/Roboto-Regular.ttf');
+}
+
+$text-color-black: #000000;
+$text-color-gray: #565656;
+$text-cat-yellow: #FFCC11;
+$color-light-grey: lightgray;
+$font-family: RobotoRegular;
+
+app-card {
+  cursor: pointer;
+}
+
+.btn-icon {
+  height: 13px;
+  width:13px;
+}
+
+.site-container-fluid {
+  height: 100%;
+  overflow: hidden;
+  border: none;
+
+  .onboard-container {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+
+    .onboard-text {
+      font-family: $font-family;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1em;
+      font-size: 1.25em;
+      color: $text-color-black;
+      width: 93%;
+    }
+
+    .add-job {
+      float: right;
+      display: block;
+      margin-left: 1.5em;
+      white-space: nowrap;
+
+      .add-job-site-no-job {
+        display: flex;
+        flex-grow: 1;
+        margin: 1em 0;
+        align-items: center;
+        padding: 0.35em 1em;
+        cursor: pointer;
+
+        .onboard-text {
+          font-family: $font-family;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 1em;
+          font-size: 1.25em;
+          color: $text-color-black;
+          width: 93%;
+        }
+
+        .btn-name {
+          margin-left: 0.4em;
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .onboard-text-dashboard {
+    display: none;
+    font-family: $font-family;
+    font-weight: 300;
+    font-size: 1em;
+    color: $text-color-black;
+    text-transform: uppercase;
+    line-height: normal;
+    letter-spacing: .25em;
+  }
+
+  .tabs {
+    margin: .25em 0 .25em;
+  }
+
+  .missing-site-info {
+    display: flex;
+    justify-content: center;
+    font-family: RobotoRegular;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 0.8em;
+    text-align: center;
+    color: #747474;
+    margin: 2em;
+    border: none;
+
+    .info {
+      margin-left: .5em;
+    }
+  }
+
+  .top-site-info {
+    display: flex;
+    flex-grow: 1;
+    margin: 1.25em 0;
+    align-items: center;
+
+    .add-job {
+      float: right;
+      display: block;
+      margin-left: 1.5em;
+      white-space: nowrap;
+
+      .add-job-site {
+        display: flex;
+        padding: .15em 1em;
+        background: $text-cat-yellow;
+        border-radius: 3px;
+        border: none;
+        font-family: RobotoRegular;
+        line-height: 2em;
+        font-size: .9em;
+        text-align: center;
+        cursor: pointer;
+        outline: 0;
+        align-items: center;
+
+        .btn-name {
+          font-size: 1em;
+          margin-left: 0.4em;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .site-body {
+    overflow-y: auto;
+    height: calc(100% - 5em);
+    width: 100%;
+
+    .site-column-grid {
+      display: -webkit-flex;
+      display: flex;
+      flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      width: 100%;
+      overflow: hidden;
+
+      .site-column {
+        margin: 0.5em 0.5em 0.5em 0.2em;
+        width: 25%;
+        min-width: 20em;
+        max-width: 25em;
+      }
+
+      .default-site-img {
+        width: 100%;
+        height: 7em;
+        display: flex;
+        justify-content: center;
+
+        .empty-site-img {
+          background-image: url("/assets/images/default-site-mobile.svg");
+          background-repeat: no-repeat;
+          width: 100%;
+          background-position: center;
+        }
+      }
+
+      .default-site-text {
+        width: 100%;
+        padding-bottom: 1em;
+        font-family: $font-family;
+        font-style: normal;
+        text-align: center;
+        line-height: 1em;
+
+        span {
+          display: block;
+        }
+
+        .nojob-header-text {
+          font-weight: 800 !important;
+          font-size: 1em;
+          color: $text-color-black;
+          padding-bottom: 5px;
+        }
+
+        .nojob-text {
+          font-weight: normal;
+          font-size: 0.80em;
+          color: $text-color-gray;
+        }
+      }
+
+      /* With Jobs*/
+      .with-site-card {
+        font-family: $font-family;
+        margin: .65em;
+        max-width: calc(100% / 3);
+        width: calc(33% - 1.26em);
+
+        .site-card-header {
+          width: 100%;
+          padding: 0.25em 0.5em 0;
+          .card-header-left {
+            width: 60%;
+            padding: 0.6em 0.6em;
+            border-radius: 1.25em;
+            background: #f4f4f4;
+            border-radius: 15px;
+            line-height: 12px;
+            font-size: 0.8em;
+            color: rgba(0, 0, 0, 0.6);
+            float: left;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+
+          .card-header-right {
+            float: right;
+            width: 30px;
+            height: 30px;
+            padding: 0 .75em;
+          }
+        }
+
+        .bottom-card {
+          padding-top: 10px;
+        }
+
+        .card-title-flex{
+          flex: unset !important;
+        }
+
+        .tiles-margin{
+          .tile1-width{
+            width: 30% !important;
+          }
+          .tile2-width, .tile3-width{
+            //width: 40% !important;
+          }
+        }
+
+        .no-jobs {
+          opacity: .4;
+          background: #E6E6E6;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          top: 6.5em;
+        }
+        .site-info {
+          margin: .5em 0 .5em;
+        .site-id{
+          padding: 0 1.15em;
+          font-size: 13px;
+        }
+      }
+
+        .sub-row {
+          width: 100%;
+          .tile-info {
+            display: flex;
+            flex-grow: 1;
+            width: 100%;
+            height: 72%;
+          }
+          .info-box {
+            flex: auto;
+            display: flex;
+            flex-direction: column;
+            font-style: normal;
+            line-height: 12px;
+            width: calc(50% - 1.5em);
+          }
+
+          .header-text {
+            font-weight: normal;
+            font-size: .85em;
+            color: $text-color-black;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: .25em 0;
+            text-overflow: ellipsis;
+
+            &.site-name {
+              font-weight: 800;
+            }
+
+            .no-active-loader {
+              margin-left: 1.5em;
+            }
+          }
+
+          .tile-holder {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            font-style: normal;
+            line-height: 12px;
+            padding: .5em;
+            width: calc(50% - 1.5em);
+
+            .sub-text {
+              font-weight: normal;
+              font-size: .75em;
+              white-space: nowrap;
+              margin: .5em 0;
+              color: $text-color-gray;
+            }
+
+            .header-with-truck {
+              display: flex;
+
+              .active-jobs {
+                vertical-align: top;
+                padding-right: 1em;
+                display: inline-block;
+              }
+
+              .truck-displatched-img {
+                background-image: url('/assets/images/distach-truck-web.png');
+                background-repeat: no-repeat;
+                width: 2.5em;
+                height: 2em;
+              }
+            }
+
+          }
+
+
+          .site-component-border-right {
+            border-right: 0.5px solid rgba(0, 0, 0, 0.1) !important;
+          }
+
+          &.border-bottom {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+          }
+        }
+        .no-jobs-today {
+          text-align: center;
+          padding: 0.15em 0;
+          border-radius: 5px;
+          width: 60%;
+          background-color: #FFFFFF;
+          z-index: 10;
+          height: 2em;
+          position: absolute;
+          top: 50%;
+          margin-top: -.5em;
+          left: 50%;
+          margin-left: -30%;
+
+          span:not(:first-child) {
+            font-family: RobotoRegular;
+            font-style: normal;
+            font-size: 14px;
+            color: #909090;
+            font-weight: bold;
+          }
+
+          span:first-child {
+            font-weight: bold;
+          font-family: RobotoRegular;
+          font-style: normal;
+          font-size: 14px;
+          color: #909090;
+          }
+
+          .catbluecolor {
+            color: #2A6BB8 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .site-card-footer {
+    padding: 0 6px;
+
+    .poweredby-text {
+      line-height: 27px;
+      font-size: 10px;
+      float: right;
+      opacity: 0.3;
+    }
+  }
+
+}
+
+::ng-deep .card-header-right {
+  .mat-icon-button {
+    width: 16px;
+  }
+}
+
+@media all and (max-width:767px) {
+  .site-container-fluid {
+    height: 100%;
+
+    .top-site-info {
+      .add-job {
+        .add-job-site {
+          .btn-name {
+            font-size: .85em;
+          }
+        }
+      }
+    }
+
+    .site-row {
+      padding: 0;
+    }
+
+    .onboard-text-dashboard {
+      display: block;
+    }
+
+    .missing-site-info {
+      display: block;
+    }
+
+    .site-body {
+      overflow-y: unset !important;
+      height: 100% !important;
+
+      .site-column-grid {
+        .site-column {
+          width: stretch !important;
+        }
+
+        .default-site-img {
+          .empty-site-img {
+            background-image: url("/assets/images/default-site-mobile.svg") !important;
+          }
+        }
+
+        .default-site-text {
+          .nojob-header-text {
+            font-size: 1em !important;
+          }
+
+          .nojob-text {
+            font-size: .8em !important;
+          }
+        }
+
+        .with-site-card {
+          max-width: 100% !important;
+          width: 100% !important;
+          .no-jobs-today {
+            .no-job-content {
+              font-size: .75em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Small device
+@media all and (min-width:768px) and (max-width:991px) {
+  .site-body {
+    .site-column-grid {
+      .empty-site-img {
+        background-image: url("/assets/images/default-site-mobile.svg") !important;
+      }
+
+      .sub-row {
+        .tile-holder {
+          .sub-text {
+            font-size: 0.5em !important;
+          }
+
+          .header-text {
+            font-size: 0.6em !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Medium device
+@media all and (min-width:992px) and (max-width:1999px) {}
+
+//large device
+@media all and (min-width:1200px) {
+  .site-body {
+    .site-column-grid {
+      .default-site-img {
+        height: 7em;
+      }
+
+      .default-site-text {
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .site-card-header {
+    .card-header-left {
+      font-size: 0.75em !important;
+      width: 55%;
+    }
+  }
+
+  .sub-row {
+    .tile-holder {
+      .sub-text {
+        font-size: 0.6em !important;
+      }
+
+      .header-text {
+        font-size: 0.8em !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .site-body {
+    .site-column-grid {
+      .default-site-img {
+        height: 7em !important;
+
+        .empty-site-img {
+          background-image: url("/assets/images/default-site-mobile.svg") !important;
+        }
+      }
+
+      .default-site-text {
+        .nojob-header-text {
+          font-size: 0.8em !important;
+        }
+
+        .nojob-text {
+          font-size: .6em !important;
+        }
+      }
+
+      .with-site-card {
+        .site-card-header {
+          .card-header-left {
+            font-size: 0.75em;
+          }
+        }
+
+        .sub-row {
+          .tile-holder {
+            .sub-text {
+              font-size: 0.6em !important;
+            }
+
+            .header-text {
+              font-size: 0.8em !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .card-header-right {
+  .mat-icon-button {
+    outline: 0 !important;
+  }
+}
+
+::ng-deep .mat-menu-item {
+  font-family: RobotoRegular;
+  font-size: .90em;
+  outline: 0 !important;
+}
+
+app-widget-dialog {
+  .delete-header {
+    font-size: 14px;
+    font-family: 'RobotoMedium';
+    padding: 1em;
+    color: #000000;
+  }
+
+  .delete-body {
+    padding: .5em 1.5em;
+
+    .delete-text {
+      font-size: 1em;
+      color: #969696;
+    }
+  }
+
+  .delete-bottom-actions {
+    padding: 1em;
+    background-color: #F1F1F1;
+    border-radius: 0px 0px 5px 5px;
+    padding-right: 1.5em;
+    display: flex;
+
+    .delete-actions {
+      flex: 1;
+      text-align: right;
+
+      .cancel-wrapper {
+        display: inline;
+        margin-right: 1.6em;
+
+        .cancel-button {
+          font-weight: 600;
+          background-color: #F1F1F1;
+          border: 1px solid #565656;
+        }
+      }
+
+      .submit-wrapper {
+        display: inline;
+
+        .submit-button {
+          font-weight: 600;
+          background-color: $text-cat-yellow;
+          border: 1px solid $text-cat-yellow;
+        }
+      }
+    }
+  }
+}

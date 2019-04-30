@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "module": "es2015",
+    "typeRoots": ["node_modules/@types"],
+    "types": ["googlemaps", "jest","node"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@Testing/*": [
+        "testing/*"
+      ],
+      "@cc/ui-core": ["libs/ui-core/src/index.ts"],
+      "@cc/sitemanagement": ["libs/sitemanagement/src/index.ts"],
+      "@cc/utils": ["libs/utils/src/index.ts"],
+      "@cc/http-interceptor": ["libs/http-interceptor/src/index.ts"],
+      "@cc/shared-lib": ["libs/shared-lib/src/index.ts"],
+      "@cc/ci-assetmanagement": ["libs/ci-assetmanagement/src/index.ts"],
+      "@cc/google-place-suggestion": [
+        "libs/google-place-suggestion/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

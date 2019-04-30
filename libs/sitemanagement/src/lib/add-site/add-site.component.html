@@ -1,0 +1,119 @@
+<div class="add-container-fluid">
+  <div class="back-nav-panel">
+    <div class="create-site-text">
+      <span class="back-arrow" (click)="onNavigationBackClick()">
+        <i class="material-icons">keyboard_arrow_left</i></span>
+      <span class="jobsite-txt" id="create-site-title">{{pageTitle}}</span>
+    </div>
+  </div>
+  <div class="site-panel" [style.padding]="sitePanelpaddingValue">
+    <mat-horizontal-stepper (selectionChange)="selectionChange($event, stepper)" [linear]="true" #stepper>
+      <ng-template matStepperIcon="edit">
+        <mat-icon id="step-done">done</mat-icon>
+      </ng-template>
+
+      <ng-container *ngFor="let step of wizardService.config.siteWizardSteps">
+        <mat-step id="step-one" [completed]="(siteId || enableSetLocation) && setLocationForm.valid && !siteExist"
+          [label]="step.label" *ngIf="step.label === wizardSteps.setLocation">
+          <div class="stepper-content">
+            <app-set-location>
+
+              <form class="locationDetails" autocomplete="off" [formGroup]="setLocationForm">
+                <div class="formfield">
+                  <div>
+                    <mat-form-field class="site-input">
+                      <input #nameRef matInput formControlName="sitename" appBlockSpecialChar (keyup)="onKeyUp($event)"
+                        class="test" (focus)="focus()" (focusout)="focusout()">
+                      <mat-placeholder>Name of the Jobsite</mat-placeholder>
+                      <mat-error id="min-error" *ngIf="sitename.hasError('minlength') && !sitename.hasError('required') && !required || isMinLength">
+                        <span>Jobsite name should be minimum of 3 characters and maximum of 16 characters long</span>
+                      </mat-error>
+                      <mat-error id="error-required" *ngIf="sitename.hasError('required') || required">Jobsite name
+                        is required</mat-error>
+
+                      <div class="error-msg" *ngIf="siteExist && !sitename.hasError('minlength') && !sitename.hasError('required') && !required && !isMinLength">
+                        <span class="error-span" id="error-exists">Jobsite already exists</span>
+                      </div>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <app-google-place-suggestion #streetRef (addressFound)="onAddressFound($event)" [(ngModel)]="street"
+                      formControlName="formCtrlStreet" [inputControl]="formCtrlStreet" ngDefaultControl></app-google-place-suggestion>
+                  </div>
+
+                </div>
+                <div>
+                  <app-google-place-suggestion #cityRef (addressFound)="onAddressFound($event)" [(ngModel)]="cityState"
+                    formControlName="formCtrlCityState" [inputControl]="formCtrlCityState" ngDefaultControl></app-google-place-suggestion>
+                </div>
+
+              </form>
+            </app-set-location>
+          </div>
+        </mat-step>
+
+        <mat-step id="step-two" [completed]="(step.optional ? siteId :checkAssignedAssets(step.optional,assignedAssets)) || false"
+          [label]="step.label" *ngIf="step.label === wizardSteps.assignAssets">
+          <div class="stepper-content">
+            <app-assign-assets [siteId]="siteId" [showSubscriptionAndaddall]="wizardService.config.showSubscriptionAndaddall"
+              [allowSearch]="wizardService.config.showSearch" (assetsAssigned)="setAssignedAsset($event)"></app-assign-assets>
+          </div>
+        </mat-step>
+
+        <mat-step id="step-three" [completed]="siteId || false" [label]="step.label" *ngIf="step.label === wizardSteps.createGeoFence">
+          <div class="stepper-content" [style.padding]="paddingValue">
+            <app-geofence [siteId]="siteId" (changePadding)="paddingChange($event)" (updateGeofence)="setGeofence($event)"
+              (loaderStatus)="setLoader($event)"></app-geofence>
+          </div>
+        </mat-step>
+
+        <mat-step id="step-four" [completed]="siteId || false" [label]="step.label" *ngIf="step.label === wizardSteps.step4">
+          <div class="stepper-content">
+            step 4
+          </div>
+        </mat-step>
+
+        <mat-step [completed]="siteId || false" [label]="step.label" *ngIf="step.label === wizardSteps.summary">
+          <div class="summary-details">
+            <app-summary (setSelectedIndex)="setSelectedIndex($event)"></app-summary>
+          </div>
+        </mat-step>
+      </ng-container>
+    </mat-horizontal-stepper>
+
+
+
+  </div>
+  <div class="stepper-actions">
+    <div class="left_align"><button class='action-btn save-btn' id="save-btn">Save</button></div>
+    <div class="right_align">
+      <button class='action-btn next-btn' (click)="goForward(stepper)" id="next-btn">{{forwardBtnText}}</button>
+      <div *ngIf="showAssignTag(stepper)"><button class='action-btn' id="assign-tag-btn" (click)="assignTag()"
+          [ngClass]="(assignedAssets && assignedAssets.length>0)?' assign-tag':' assign-tag-block'">Assign Tags</button></div>
+    </div>
+  </div>
+</div>
+
+<app-widget-dialog [(visible)]="showAssignTagDialog" *ngIf="showAssignTagDialog" dimensionsClass="assign-tag-responsive">
+  <app-tag-assets [assignedAssets]="assignedAssets" (updateAssignAsset)="setTaggedAsset($event)" (closeTagPopup)="hideAssignTagPopup()">
+  </app-tag-assets>
+</app-widget-dialog>
+
+<!-- Confirmation delete dialog -->
+<app-widget-dialog [(visible)]="showExitPopup" (visibleChange)="popupVisibleChange()" *ngIf="showExitPopup"
+  dimensionsClass="confirmation-responsive">
+  <h4 class="confirmation-header">Confirmation</h4>
+  <div>
+    <p class="confirmation-text">Are you sure you want to exit the Create Jobsite workflow? </p>
+  </div>
+  <div class="confirmation-bottom-actions">
+    <div class="confirmation-actions">
+      <div class="cancel-wrapper">
+        <button mat-button class="cancel-button" (click)="onConfirmNo()">No</button>
+      </div>
+      <div class="submit-wrapper">
+        <button mat-button class="submit-button" (click)="onConfirmYes()">Yes</button>
+      </div>
+    </div>
+  </div>
+</app-widget-dialog>

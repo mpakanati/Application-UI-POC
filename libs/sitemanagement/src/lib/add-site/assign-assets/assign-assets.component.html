@@ -1,0 +1,84 @@
+<div class="asset-tagging-container">
+  <div class="asset-info">
+    <div id="asset-logo" class="logo"></div>
+    <div class="info">
+      <div id="assign-header" class="info-head">Assign Assets</div>
+      <div id="assign-text" class="info-text">Select assets that will be working on your jobsite based on
+        Activites</div>
+    </div>
+  </div>
+  <div class="asset-availabe-wrapper">
+    <div class="assigned-asset-container">
+      <div id="assigned-text" class="head-text">Assigned Assets <span id="assinged-count">({{assignedAssets.length}})</span></div>
+      <span id="remove-all" *ngIf="assignedAssets.length !== 0" class="link" (click)="removeAll()">Remove
+        All</span>
+      <div class="asset-container">
+        <div id="no-assets" class="no-assets" *ngIf="assignedAssets.length === 0">No Assets Assigned</div>
+        <div id="assets-list" class="selected-assets" *ngIf="assignedAssets.length !== 0">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let assigned of assignedAssets;let i = index; trackBy: getAssignedAssetsTrack"
+              [removable]="true" (removed)="removeAssets(assigned, i)">
+              {{assigned.serialNumber}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+    </div>
+    <div class="availiable-asset-container">
+      <div class="search-mobile" *ngIf="showSearch">
+        <app-widget-search [placeHolderText]="placeHolderText" [minLengthSearch]="minLength_search" [(ngModel)]="searchInput"
+          [ghostText]="ghostText" cancelButtonClass="d-none" (keyEnter)="onSearchTermEntered($event)" (emptySearchText)="onEmptySearchField($event)"
+          ngDefaultControl>
+        </app-widget-search>
+      </div>
+      <div id="available-assets" class="head-text">Available Assets (<span id="available-count">{{assetTiles.length}}</span><span
+          id="total-count" *ngIf="totalAssetsCount && avaliableAssets.length !== totalAssetsCount">/{{totalAssetsCount}}</span>)
+      </div>
+      <span id="add-all" class="link right" *ngIf="!showSubscriptionAndaddall && assignedAssets.length !== assetTiles.length"
+        (click)="assignAll()">Add
+        All</span>
+      <div class="pull-right search-desktop" *ngIf="showSearch">
+        <app-widget-search [placeHolderText]="placeHolderText" [minLengthSearch]="minLength_search" [(ngModel)]="searchInput"
+          [ghostText]="ghostText" (keyEnter)="onSearchTermEntered($event)" (emptySearchText)="onEmptySearchField($event)"
+          ngDefaultControl>
+        </app-widget-search>
+      </div>
+      <div class="availiable-list" infiniteScroll [infiniteScrollDistance]="5" [infiniteScrollThrottle]="25" (scrolled)="loadAvailiableAssets()"
+        [scrollWindow]="false">
+        <div class="list-container">
+          <cc-card id="site-card-list-{{i}}" class="card-container" [cardStyle]="cardHeaderStyle" [cardBodyStyle]="cardBodyStyle"
+            *ngFor="let tile of assetTiles;let i = index; trackBy: getAssetTilesTrack">
+            <div class='tile-container'>
+              <cc-tile class="loader" [tile]="tile.assets"></cc-tile>
+              <cc-tile class="loader-info" [tile]="tile.loader"></cc-tile>
+              <cc-tile *ngIf="!showSubscriptionAndaddall" class="sites-info" [tile]="tile.sites">
+              </cc-tile>
+              <cc-tile *ngIf="showSubscriptionAndaddall" class="subscription-info" [tile]="tile.subscriptionTitle">
+                <ng-container *ngTemplateOutlet="subscriptionsTemplate;context:tile"></ng-container>
+              </cc-tile>
+              <cc-tile class="icon-info" [ngClass]="{'tick': tile.icon[0].isSiteMatched , 'add':!tile.icon[0].isSiteMatched }"
+                [tile]="tile.icon" (click)="assignAssets(tile)"></cc-tile>
+            </div>
+          </cc-card>
+        </div>
+        <div class="empty-asset-wrapper" *ngIf="showEmptySearchResults">
+          <span class="empty-asset-msg">
+            Asset ID "<strong>{{searchedTerm}}</strong>" cannot be found.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #subscriptionsTemplate let-subscription="subscriptions">
+  <div class="subscription-wrapper pull-left" matTooltip='{{subscription.join(", ")}}' matTooltipPosition="above">
+    <div class="subscription subscription-tag">
+      <span class="subscription-text">{{subscription[0]}}</span>
+    </div>
+    <div class="subscription additional-sub-wrapper pull-right" *ngIf="subscription.length > 1">
+      <span>+{{subscription.length-1}}</span>
+    </div>
+  </div>
+</ng-template>

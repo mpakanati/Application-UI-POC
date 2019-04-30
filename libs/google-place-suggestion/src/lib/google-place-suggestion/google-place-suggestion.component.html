@@ -1,0 +1,20 @@
+<form [formGroup]="LocationForm">
+  <div class="place-suggestion-container">
+    <mat-form-field class="full-width-input">
+      <input #placeInput matInput [(ngModel)]="placeText" appBlockSpecialChar id="{{controlId}}" formControlName="name"
+        class="test" (focusout)="onFocusOut()" maxlength="100" (focus)="onFocus()" (keyup)="onKeyUp($event)" (keypress)="onKeyPress()">
+      <mat-placeholder>{{inputControl.placeHolder}}</mat-placeholder>
+      <button mat-button *ngIf="placeText != ''" matSuffix mat-icon-button aria-label="Clear" (click)="clearText()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="name.hasError('required') && !selected">{{inputControl.errorMessage.required}}</mat-error>
+      <div class="error-msg" *ngIf="name.hasError('required') && !inputControl.autocomplete && selected">
+        <span class="error-span">{{inputControl.errorMessage.validStreet}}</span>
+      </div>
+      <div class="error-msg" *ngIf="!name.hasError('required') && inputControl.autocomplete && keyPressed && focusIn && !selected">
+        <span class="error-span">{{inputControl.errorMessage.validCity}}</span>
+      </div>
+    </mat-form-field>
+
+  </div>
+</form>

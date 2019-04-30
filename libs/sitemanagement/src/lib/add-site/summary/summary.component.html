@@ -1,0 +1,74 @@
+<section class="site-summary">
+  <div class="header-wrapper">
+    <h5 class="header" id="summary-title">
+      Summary
+    </h5>
+  </div>
+  <p class="summary-info" id="summary-text">All Done! Time to finish and get down to business.</p>
+  <ng-container *ngFor="let step of wizardService.config.siteWizardSteps">
+    <div *ngIf="step.label === wizardSteps.setLocation">
+      <div class="header-wrapper">
+        <span id="set-location" class="header-small pad-right">
+          Set Name and Location
+        </span>
+        <a (click)="onEditClicked(step.label)" id="location-edit" class="edit-link">Edit</a>
+      </div>
+      <div class="location-container">
+        <div class="jobsite-wrapper">
+          <div class="jobsite-header" id="jobsite-title">
+            Jobsite Name
+          </div>
+          <p class="jobsite-info" id="jobsite-value">
+            {{summaryData?.locationDetails?.siteName}}
+          </p>
+        </div>
+        <div class="address-wrapper">
+          <div class="jobsite-header" id="address-title">
+            Address
+          </div>
+          <p class="jobsite-info" id="address-value">
+            {{summaryData?.locationDetails?.street}}<span>,</span> {{summaryData?.locationDetails?.cityState}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="step.label === wizardSteps.assignAssets">
+      <div class="header-wrapper">
+        <span class="header-small pad-right" id="assign-assets-title">
+          Assign Assets
+        </span>
+        <a (click)="onEditClicked(step.label)" id="edit-assign-assets" class="edit-link">Edit</a>
+      </div>
+      <div class="location-container reduce-mar">
+        <div class="jobsite-wrapper">
+          <div id="assigned-assets-title" class="jobsite-header">
+            Assigned Assets <span id="assigned-assets-count">({{summaryData?.assetsDetails?.length || 0}})</span>
+          </div>
+        </div>
+      </div>
+      <div class="assets-box">
+        <div class="no-assets" *ngIf="!summaryData.assetsDetails">No Assets Assigned</div>
+        <mat-chip-list id="chip-list" *ngIf="summaryData?.assetsDetails?.length > 0">
+          <mat-chip id="chip-list-{{i}}" *ngFor="let option of summaryData?.assetsDetails; let i = index">{{option?.serialNumber}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+    <div class="geofence-details" *ngIf="step.label === wizardSteps.createGeoFence && 
+                                          summaryData?.geofenceDetails?.length > 0">
+      <div class="header-wrapper">
+        <span class="header-small pad-right" id="geofence-title">
+          Create Geofence
+        </span>
+        <a (click)="onEditClicked(step.label)" id="edit-geofence" class="edit-link">Edit</a>
+      </div>
+      <div class="geofence-container">
+        <div class="geofence-wrapper">
+          <div class="geofence-boundary" *ngFor="let area of summaryData.geofenceDetails"
+              [ngStyle]="{'border-color': area.color}">
+            <span class="geofence-text">{{area.boundaryName}}</span> 
+            </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</section>
